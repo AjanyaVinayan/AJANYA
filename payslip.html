@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Pay Slip Generator</title>
+    <style>
+        .payslip {
+            width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        .field {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Employee Pay Slip Generator</h2>
+    <form method="post" action="payslip.php">
+        <div style="text-align: center;">
+            <label>Employee Name:</label><br>
+            <input type="text" name="name" required><br><br>
+            
+            <label>Basic Salary:</label><br>
+            <input type="number" name="basic" required><br><br>
+            
+            <label>Designation:</label><br>
+            <select name="designation" required>
+                <option value="Manager">Manager</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Clerk">Clerk</option>
+                <option value="Peon">Peon</option>
+            </select><br><br>
+            
+            <input type="submit" value="Generate Pay Slip">
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Multiplication Table</h1>
+        <label for="number">Number:</label>
+        <input type="number" id="number" min="1" required>
+        <br> <br>
+        <label for="limit">Limit:</label>
+        <input type="number" id="limit" min="1" required>
+        <br>
+        <button onclick="generateTable()">Generate Table</button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function generateTable() {
+            // Get user input
+            const number = parseInt(document.getElementById('number').value);
+            const limit = parseInt(document.getElementById('limit').value);
+
+            // Validate input
+            if (isNaN(number) || isNaN(limit) || number < 1 || limit < 1) {
+                alert('Please enter valid numbers greater than 0.');
+                return;
+            }
+
+            // Create the table
+            let table = '<table><tr><th>Multiplier</th><th>Result</th></tr>';
+            for (let i = 1; i <= limit; i++) {
+                table += `<tr><td>${number} x ${i}</td><td>${number * i}</td></tr>`;
+            }
+            table += '</table>';
+
+            // Display the table
+            document.getElementById('result').innerHTML = table;
+        }
+    </script>
+</body>
+</html>
